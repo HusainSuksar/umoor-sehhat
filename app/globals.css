@@ -8,8 +8,8 @@
 
 @font-face {
   font-family: 'KanzAlMarjaan';
-  src: url('/fonts/kanz-al-marjaan.woff2') format('woff2'),
-       url('/fonts/kanz-al-marjaan.ttf') format('truetype');
+  src: url('/fonts/Kanz-al-Marjaan.woff2') format('woff2'),
+       url('/fonts/Kanz-al-Marjaan.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
