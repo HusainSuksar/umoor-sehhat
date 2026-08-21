@@ -1,16 +1,13 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { MOCK_INSTAGRAM_POSTS } from '@/lib/mock-data';
 import FeaturedBlogs from '@/components/content/FeaturedBlogs';
-import HeroQuickSearch from '@/components/home/HeroQuickSearch';
-import { Stethoscope, FileUp, Shield, Activity, PhoneCall } from 'lucide-react';
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#F4F9F6] text-slate-800 selection:bg-emerald-200 selection:text-emerald-950">
       
       {/* 1. Hero Section with Centered Logo Watermark Background */}
-      <section className="relative overflow-hidden pt-16 pb-24 sm:pt-24 sm:pb-32 bg-gradient-to-b from-emerald-100/70 via-[#F4F9F6]/90 to-[#F4F9F6] border-b border-emerald-100/80">
+      <section className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32 bg-gradient-to-b from-emerald-100/70 via-[#F4F9F6]/90 to-[#F4F9F6] border-b border-emerald-100/80">
         
         {/* Ambient Top Lighting */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-emerald-300/30 blur-[130px] rounded-full pointer-events-none z-0" />
@@ -42,7 +39,8 @@ export default function Home() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
               </span>
               <span dir="rtl" lang="ar" className="font-kanz text-xl sm:text-2xl font-bold text-emerald-800 leading-none">
-                امور الصحة               </span>
+                امور الصحة  
+              </span>
             </div>
 
             {/* Hero Main Heading */}
@@ -53,51 +51,9 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-base sm:text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-base sm:text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
               Direct access to verified medical consultants, authoritative preventative guidance, and secure clinical document intake.
             </p>
-
-            {/* Direct Quick Search Bar */}
-            <div className="mb-10">
-              <HeroQuickSearch />
-            </div>
-
-            {/* Immediate Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/directory"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 px-8 py-4 text-base font-extrabold text-white shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5 transition-all"
-              >
-                <Stethoscope className="w-5 h-5" /> Browse Medical Directory
-              </Link>
-              
-              <Link
-                href="/report"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-white hover:bg-emerald-50/80 border-2 border-emerald-200 px-8 py-4 text-base font-bold text-emerald-900 shadow-xs hover:-translate-y-0.5 transition-all"
-              >
-                <FileUp className="w-5 h-5 text-emerald-600" /> Submit Diagnostic Report
-              </Link>
-            </div>
-
-            {/* Trust Metrics */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-8 border-t border-emerald-200/60">
-              <div className="p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
-                <div className="text-2xl sm:text-3xl font-black text-emerald-700">100%</div>
-                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Verified Doctors</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
-                <div className="text-2xl sm:text-3xl font-black text-emerald-700">256-bit</div>
-                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">RLS Protected Data</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
-                <div className="text-2xl sm:text-3xl font-black text-emerald-700">&lt; 2hr</div>
-                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Rapid Triage</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
-                <div className="text-2xl sm:text-3xl font-black text-emerald-700">24/7</div>
-                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Helpline Support</div>
-              </div>
-            </div>
 
           </div>
         </div>
