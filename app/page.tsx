@@ -3,60 +3,49 @@ import Image from 'next/image';
 import { MOCK_INSTAGRAM_POSTS } from '@/lib/mock-data';
 import FeaturedBlogs from '@/components/content/FeaturedBlogs';
 import HeroQuickSearch from '@/components/home/HeroQuickSearch';
-import MissionVisionSection from '@/components/home/MissionVisionSection';
-import { 
-  ArrowRight, 
-  ShieldCheck, 
-  Stethoscope, 
-  FileUp, 
-  Activity, 
-  CheckCircle2, 
-  PhoneCall,
-  Lock,
-  HeartPulse,
-  Clock,
-  Sparkles
-} from 'lucide-react';
+import { Stethoscope, FileUp, Shield, Activity, PhoneCall } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F4F9F6] selection:bg-emerald-200 selection:text-emerald-950">
+    <div className="flex flex-col min-h-screen bg-[#F4F9F6] text-slate-800 selection:bg-emerald-200 selection:text-emerald-950">
       
-      {/* 1. Hero Section with Medium-Visibility Watermark Logo Background */}
-      <section className="relative overflow-hidden pt-16 pb-24 sm:pt-24 sm:pb-36 bg-gradient-to-b from-emerald-100/80 via-[#F4F9F6]/90 to-[#F4F9F6] border-b border-emerald-100">
+      {/* 1. Hero Section with Centered Logo Watermark Background */}
+      <section className="relative overflow-hidden pt-16 pb-24 sm:pt-24 sm:pb-32 bg-gradient-to-b from-emerald-100/70 via-[#F4F9F6]/90 to-[#F4F9F6] border-b border-emerald-100/80">
         
-        {/* Ambient Top Glows */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-emerald-200/50 blur-[130px] rounded-full pointer-events-none -z-10" />
+        {/* Ambient Top Lighting */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-emerald-300/30 blur-[130px] rounded-full pointer-events-none z-0" />
 
-        {/* LOGO WATERMARK BACKGROUND (Medium Visibility / Sophisticated Aesthetic) */}
+        {/* Center-Aligned Department Crest Watermark */}
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] sm:w-[650px] lg:w-[780px] aspect-square opacity-[0.11] pointer-events-none select-none -z-10 transition-transform duration-700 ease-out"
+          className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
           aria-hidden="true"
         >
-          <Image
-            src="/logo.png"
-            alt="Umoor Sehhat Background Crest"
-            fill
-            className="object-contain"
-            priority
-          />
+          <div className="relative w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] lg:w-[680px] lg:h-[680px] opacity-[0.14] mix-blend-multiply transition-transform duration-700">
+            <Image
+              src="/logo.png"
+              alt="Umoor Sehhat Crest Watermark"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
 
+        {/* Hero Foreground Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             
-            {/* Arabic Crest Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/90 border border-emerald-200 shadow-xs mb-8 backdrop-blur-sm">
+            {/* Arabic Crest Tag */}
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/90 border border-emerald-200/90 shadow-xs mb-8 backdrop-blur-md">
               <span className="flex h-2.5 w-2.5 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
               </span>
-              <span dir="rtl" lang="ar" className="font-arabic text-xl sm:text-2xl font-bold text-emerald-800 leading-none">
-                امور الصحة — الرعاية الطبية الشاملة
-              </span>
+              <span dir="rtl" lang="ar" className="font-kanz text-xl sm:text-2xl font-bold text-emerald-800 leading-none">
+                امور الصحة               </span>
             </div>
 
-            {/* Main Headline */}
+            {/* Hero Main Heading */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-emerald-950 leading-[1.12] mb-6">
               Unified Healthcare Authority &{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-800">
@@ -65,15 +54,15 @@ export default function Home() {
             </h1>
 
             <p className="text-base sm:text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-              Connecting our community with verified medical consultants, authoritative preventative guidance, and secure clinical document triage.
+              Direct access to verified medical consultants, authoritative preventative guidance, and secure clinical document intake.
             </p>
 
-            {/* Interactive Hero Quick Search Bar */}
+            {/* Direct Quick Search Bar */}
             <div className="mb-10">
               <HeroQuickSearch />
             </div>
 
-            {/* Quick Action Buttons */}
+            {/* Immediate Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/directory"
@@ -90,21 +79,21 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Trust Metrics Bar */}
+            {/* Trust Metrics */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-8 border-t border-emerald-200/60">
-              <div className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
+              <div className="p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
                 <div className="text-2xl sm:text-3xl font-black text-emerald-700">100%</div>
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Verified Doctors</div>
               </div>
-              <div className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
+              <div className="p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
                 <div className="text-2xl sm:text-3xl font-black text-emerald-700">256-bit</div>
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">RLS Protected Data</div>
               </div>
-              <div className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
+              <div className="p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
                 <div className="text-2xl sm:text-3xl font-black text-emerald-700">&lt; 2hr</div>
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Rapid Triage</div>
               </div>
-              <div className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
+              <div className="p-4 rounded-2xl bg-white/85 backdrop-blur-sm border border-emerald-100 shadow-xs text-center">
                 <div className="text-2xl sm:text-3xl font-black text-emerald-700">24/7</div>
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">Helpline Support</div>
               </div>
@@ -114,81 +103,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Vision & Mission Section */}
-      <MissionVisionSection />
-
-      {/* 3. Core Operational Pillars */}
-      <section className="py-20 bg-[#F4F9F6] border-b border-emerald-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-xs font-extrabold uppercase tracking-widest text-emerald-700 mb-2">Institutional Standards</h2>
-            <p className="text-3xl sm:text-4xl font-black text-emerald-950 tracking-tight">
-              Clinical Governance for Community Health
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <div className="p-8 rounded-3xl bg-white border border-emerald-100/90 shadow-xs hover:shadow-xl hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6 border border-emerald-200">
-                  <ShieldCheck className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-bold text-emerald-950 mb-3">Rigorous Doctor Credentialing</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  Every practitioner listed is vetted for active medical council registrations, clinical certifications, and location validity.
-                </p>
-              </div>
-              <ul className="space-y-2 text-xs font-bold text-emerald-800 border-t border-slate-100 pt-4">
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Specialist Qualification Audit</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> WhatsApp Tele-Consult Routing</li>
-              </ul>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-white border border-emerald-100/90 shadow-xs hover:shadow-xl hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6 border border-emerald-200">
-                  <FileUp className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-bold text-emerald-950 mb-3">Encrypted Clinical Intake</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  Diagnostic reports and lab scans route straight to isolated cloud drive storage, visible only to authorized medical coordinators.
-                </p>
-              </div>
-              <ul className="space-y-2 text-xs font-bold text-emerald-800 border-t border-slate-100 pt-4">
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Zero Public File Exposure</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Automated Coordinator Dispatch</li>
-              </ul>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-white border border-emerald-100/90 shadow-xs hover:shadow-xl hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6 border border-emerald-200">
-                  <Activity className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-bold text-emerald-950 mb-3">Evidence-Based Literature</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  Practitioners author authentic medical guidance on seasonal transitions, cardiology, and pediatrics after peer editorial review.
-                </p>
-              </div>
-              <ul className="space-y-2 text-xs font-bold text-emerald-800 border-t border-slate-100 pt-4">
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Peer-Reviewed Drafting Desk</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Direct Doctor Attribution</li>
-              </ul>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 4. Live Instagram Feed Section */}
+      {/* 2. Live Instagram Feed Section */}
       <section className="py-20 bg-white border-b border-emerald-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
-              <div className="text-xs font-extrabold uppercase tracking-widest text-emerald-700 mb-1">Official Media Desk</div>
+              <div className="text-xs font-extrabold uppercase tracking-widest text-emerald-700 mb-1">Official Social Media</div>
               <h2 className="text-3xl font-extrabold text-emerald-950 tracking-tight">Live Updates & Advisories</h2>
             </div>
             <a 
@@ -228,7 +148,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Featured Health Advisories Section */}
+      {/* 3. Featured Health Advisories Section */}
       <FeaturedBlogs />
 
     </div>
