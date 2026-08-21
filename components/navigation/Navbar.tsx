@@ -63,7 +63,7 @@ export default function Navbar() {
                 <span 
                   dir="rtl" 
                   lang="ar"
-                  className="font-arabic text-xl sm:text-2xl font-bold text-emerald-300 leading-none select-none tracking-wide"
+                  className="font-kanz text-xl sm:text-2xl font-bold text-emerald-300 leading-none select-none tracking-wide"
                 >
                   امور الصحة
                 </span>
@@ -104,7 +104,7 @@ export default function Navbar() {
             </Link>
 
             <a
-              href="https://wa.me/919876543210?text=Salam,%20I%20need%20healthcare%20guidance"
+              href="https://wa.me/918378944352?text=Salam,%20I%20need%20healthcare%20guidance"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition-all active:scale-95 shrink-0"
@@ -116,7 +116,7 @@ export default function Navbar() {
           {/* Mobile Right Controls: Helpline Icon + Hamburger Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
             <a
-              href="https://wa.me/919876543210?text=Salam,%20I%20need%20healthcare%20guidance"
+              href="https://wa.me/918378944352?text=Salam,%20I%20need%20healthcare%20guidance"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Contact Helpline"

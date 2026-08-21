@@ -40,7 +40,7 @@ export const MOCK_PRACTITIONERS: Practitioner[] = [
     experienceYears: 14,
     location: 'Central Medical Complex',
     available: true,
-    contactNumber: '919876543210',
+    contactNumber: '918378944352',
     photoUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&q=80',
   },
   {

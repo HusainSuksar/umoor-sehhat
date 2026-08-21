@@ -34,7 +34,7 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
               </span>
-              <span dir="rtl" lang="ar" className="font-kanz text-xl font-bold text-emerald-400 leading-tight">
+              <span dir="rtl" lang="ar" className="font-kanz text-xl sm:text-2xl font-bold text-emerald-800 leading-none">
                 امور الصحة  
               </span>
             </div>
