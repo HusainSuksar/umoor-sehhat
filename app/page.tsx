@@ -6,18 +6,18 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#F4F9F6] text-slate-800 selection:bg-emerald-200 selection:text-emerald-950">
       
-      {/* 1. Hero Section with Centered Logo Watermark Background */}
-      <section className="relative overflow-hidden pt-20 pb-24 sm:pt-28 sm:pb-32 bg-gradient-to-b from-emerald-100/70 via-[#F4F9F6]/90 to-[#F4F9F6] border-b border-emerald-100/80">
+      {/* 1. Hero Section with Scaled-Down, Higher-Positioned 40% Watermark Logo */}
+      <section className="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28 bg-gradient-to-b from-emerald-100/80 via-[#F4F9F6] to-[#F4F9F6]">
         
-        {/* Ambient Top Lighting */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-emerald-300/30 blur-[130px] rounded-full pointer-events-none z-0" />
+        {/* Soft Ambient Light Mesh */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-emerald-300/25 blur-[140px] rounded-full pointer-events-none z-0" />
 
-        {/* Center-Aligned Department Crest Watermark */}
+        {/* Scaled-Down 40% Opacity Logo Watermark (Slightly Offset Upward) */}
         <div 
-          className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
+          className="absolute inset-0 flex items-center justify-center -translate-y-4 sm:-translate-y-8 pointer-events-none z-0 overflow-hidden"
           aria-hidden="true"
         >
-          <div className="relative w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] lg:w-[680px] lg:h-[680px] opacity-[0.14] mix-blend-multiply transition-transform duration-700">
+          <div className="relative w-[260px] h-[260px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px] opacity-40 mix-blend-multiply transition-transform duration-700 [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_98%)]">
             <Image
               src="/logo.png"
               alt="Umoor Sehhat Crest Watermark"
@@ -31,13 +31,11 @@ export default function Home() {
         {/* Hero Foreground Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            
-            {/* Arabic Crest Tag */}
-            
 
-            {/* Hero Main Heading */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-emerald-950 leading-[1.12] mb-6">
-              Unified Healthcare Authority &{' '}
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-emerald-950 leading-[1.15] mb-6">
+              Unified Healthcare <br className="hidden sm:block" />
+              Authority &{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-800">
                 Community Wellness
               </span>
@@ -51,8 +49,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Live Instagram Feed Section */}
-      <section className="py-20 bg-white border-b border-emerald-100">
+      {/* 2. Live Social Media Stream */}
+      <section className="pt-6 pb-20 bg-gradient-to-b from-[#F4F9F6] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
@@ -63,7 +61,7 @@ export default function Home() {
               href="https://instagram.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-800 hover:text-emerald-950 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-4 py-2 rounded-xl transition-all shadow-xs"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-800 hover:text-emerald-950 bg-white hover:bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-xl transition-all shadow-xs"
             >
               <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
@@ -74,7 +72,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {MOCK_INSTAGRAM_POSTS.map((post) => (
-              <div key={post.id} className="group cursor-pointer rounded-3xl overflow-hidden border border-emerald-100 bg-[#F8FAF9] shadow-xs hover:shadow-xl hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+              <div key={post.id} className="group cursor-pointer rounded-3xl overflow-hidden border border-emerald-100/90 bg-white shadow-xs hover:shadow-xl hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 flex flex-col">
                 <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
                   <Image
                     src={post.mediaUrl}
