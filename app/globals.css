@@ -1,80 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=DM+Serif+Display:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
 
 @layer base {
   :root {
-    --font-kanz: 'KanzAlMarjaan', 'Amiri', 'Traditional Arabic', serif;
+    /* Botanical Sage Green Palette */
+    --color-sage-nav: #7A8B5C;        /* Main Navbar Background */
+    --color-sage-deep: #5F6F44;       /* Darker active/hover state & borders */
+    --color-sage-surface: #6B7B4F;    /* Search & Submenu containers */
+    --color-sage-border: #91A373;     /* Framing borders & light accents */
+    --color-sage-light: #F3F6EF;      /* Text highlight on dark sage */
+    --color-sage-soft: #E2EAD8;       /* Pill badge highlights */
+
+    /* Action & Canvas Tokens */
+    --color-terracotta: #D4703B;
+    --color-terracotta-hover: #BC5E2C;
+    --color-canvas-bg: #FAFBF9;
+    --color-text-dark: #1F2817;
   }
-}
 
-@font-face {
-  font-family: 'KanzAlMarjaan';
-  src: url('/fonts/Kanz-al-Marjaan.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-.font-kanz {
-  font-family: var(--font-kanz);
-}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
   body {
-    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    font-family: 'Open Sans', 'Roboto', system-ui, sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-canvas-bg);
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'DM Serif Display', Georgia, serif;
+  }
+
+  .font-heading {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .font-arabic {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
   }
 }
 
-.font-arabic {
-  font-family: var(--font-arabic), 'Amiri', 'Traditional Arabic', serif;
-}
-
-/* Smooth Right-to-Left Arabic Reveal without breaking tashkeel/ligatures */
-@keyframes arabicRevealRTL {
-  0% {
-    clip-path: inset(0 100% 0 0); /* Hidden from left to right (RTL start) */
-  }
-  100% {
-    clip-path: inset(0 0 0 0); /* Fully visible */
-  }
-}
-
-@keyframes cursorFollowRTL {
-  0% {
-    right: 0%;
-    opacity: 1;
-  }
-  95% {
-    right: 100%;
-    opacity: 1;
-  }
-  100% {
-    right: 100%;
-    opacity: 0;
-  }
-}
-
-.animate-arabic-reveal {
-  animation: arabicRevealRTL 3.2s steps(40, end) forwards;
-}
-
-.animate-arabic-cursor {
-  animation: cursorFollowRTL 3.2s steps(40, end) forwards;
-}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  body {
-    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  }
-}
-
-.font-arabic {
-  font-family: var(--font-arabic), 'Amiri', 'Traditional Arabic', serif;
+.max-w-academic {
+  max-width: 1300px;
 }
 
 .no-scrollbar::-webkit-scrollbar {

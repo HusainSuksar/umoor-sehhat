@@ -12,8 +12,9 @@ import {
   XCircle, 
   Stethoscope, 
   FilterX, 
-  ShieldCheck,
-  Building2
+  Building2,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 const SPECIALTIES = [
@@ -32,11 +33,8 @@ export default function DirectorySearchContent() {
   const [query, setQuery] = useState(initialQuery);
   const [activeSpecialty, setActiveSpecialty] = useState('All');
 
-  // Synchronize state if URL search param changes via header search
   useEffect(() => {
-    if (initialQuery) {
-      setQuery(initialQuery);
-    }
+    if (initialQuery) setQuery(initialQuery);
   }, [initialQuery]);
 
   const filteredDoctors = useMemo(() => {
@@ -53,28 +51,29 @@ export default function DirectorySearchContent() {
 
   return (
     <div className="space-y-8">
-      {/* Search and Specialty Filter Bar */}
-      <div className="bg-white p-3.5 rounded-2xl border border-emerald-100/90 shadow-sm flex flex-col md:flex-row gap-3 sticky top-24 z-30">
+      {/* Search and Specialty Tabs */}
+      <div className="bg-[#fff9f0] p-4 rounded-2xl border border-[#C99848] shadow-sm flex flex-col md:flex-row gap-3 sticky top-24 z-30">
         <div className="relative flex-1">
-          <Search className="w-4 h-4 text-emerald-700/60 absolute left-4 top-3.5" />
+          <Search className="w-4 h-4 text-[#C99848] absolute left-4 top-3.5" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by doctor name, specialty, or clinic location..."
-            className="w-full pl-11 pr-4 py-2.5 bg-[#F8FAF9] border border-slate-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all font-medium text-slate-800"
+            placeholder="Search by physician name, clinical specialty, or center..."
+            className="w-full pl-11 pr-4 py-2.5 bg-white border border-[#C99848]/60 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#C99848] text-[#152251]"
           />
         </div>
         
+        {/* Filter Pills with Muted Gold States */}
         <div className="flex gap-1.5 overflow-x-auto pb-1 md:pb-0 no-scrollbar">
           {SPECIALTIES.map((spec) => (
             <button
               key={spec}
               onClick={() => setActiveSpecialty(spec)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-heading font-bold whitespace-nowrap transition-all ${
                 activeSpecialty === spec
-                  ? 'bg-emerald-600 text-white shadow-xs'
-                  : 'bg-[#F8FAF9] text-slate-600 hover:bg-emerald-50 hover:text-emerald-800 border border-slate-200/60'
+                  ? 'bg-[#F4E8D4] text-[#0f2442] border border-[#C99848] shadow-xs'
+                  : 'bg-white text-[#152251] hover:bg-[#C99848] hover:text-white border border-[#e4d6a0]'
               }`}
             >
               {spec}
@@ -89,12 +88,11 @@ export default function DirectorySearchContent() {
           {filteredDoctors.map((doc) => (
             <article
               key={doc.id}
-              className="bg-white rounded-3xl border border-emerald-100/80 p-6 flex flex-col justify-between hover:shadow-xl hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 shadow-xs"
+              className="bg-white rounded-2xl border border-[#C99848] p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-sm"
             >
               <div>
-                {/* Doctor Avatar & Basic Credentials */}
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-slate-100 shrink-0 border border-emerald-100">
+                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-slate-100 shrink-0 border border-[#e4d6a0]">
                     <Image
                       src={doc.photoUrl}
                       alt={doc.name}
@@ -105,44 +103,42 @@ export default function DirectorySearchContent() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-heading font-bold bg-[#fff9f0] text-[#0f2442] border border-[#C99848]">
                         {doc.specialty}
                       </span>
                       {doc.available ? (
-                        <span className="inline-flex items-center gap-1 text-[11px] text-emerald-700 font-bold">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-600" /> Active
+                        <span className="inline-flex items-center gap-1 text-[11px] text-[#C99848] font-heading font-bold">
+                          <CheckCircle2 className="w-3 h-3 text-[#C99848]" /> Available
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 text-[11px] text-slate-400 font-bold">
-                          <XCircle className="w-3 h-3 text-slate-400" /> Away
+                        <span className="inline-flex items-center gap-1 text-[11px] text-[#cccccc] font-heading font-bold">
+                          <XCircle className="w-3 h-3 text-[#cccccc]" /> Away
                         </span>
                       )}
                     </div>
-                    <h2 className="text-lg font-bold text-slate-900 mt-1 truncate">{doc.name}</h2>
-                    <p className="text-xs text-emerald-700 font-bold truncate">{doc.qualification}</p>
+                    <h2 className="text-xl font-display font-normal text-[#000000] mt-1 truncate">{doc.name}</h2>
+                    <p className="text-xs text-[#1c388c] font-heading font-semibold truncate">{doc.qualification}</p>
                   </div>
                 </div>
 
-                {/* Clinical Location & Years of Practice */}
-                <div className="space-y-2 text-xs text-slate-600 bg-[#F8FAF9] p-3.5 rounded-2xl border border-slate-100 mb-4">
+                <div className="space-y-2 text-xs text-[#152251] bg-[#fff9f0] p-3.5 rounded-xl border border-[#e4d6a0]/80 mb-4">
                   <div className="flex items-center gap-2">
-                    <Building2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <Building2 className="w-3.5 h-3.5 text-[#C99848] shrink-0" />
                     <span className="font-semibold truncate">{doc.location}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Stethoscope className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <Stethoscope className="w-3.5 h-3.5 text-[#C99848] shrink-0" />
                     <span>{doc.experienceYears} Years Clinical Practice</span>
                   </div>
                 </div>
               </div>
 
-              {/* Direct Private WhatsApp Consultation Link */}
-              <div className="pt-3 border-t border-slate-100">
+              <div className="pt-3 border-t border-[#e4d6a0]/50">
                 <a
-                  href={`https://wa.me/${doc.contactNumber}?text=Salam%20Dr.%20${encodeURIComponent(doc.name)},%20I%20am%20reaching%20out%20via%20the%20Umoor%20Sehhat%20directory.`}
+                  href={`https://wa.me/${doc.contactNumber}?text=Salam%20Dr.%20${encodeURIComponent(doc.name)},%20I%20am%20reaching%20out%20via%20the%20Umoor%20Sehhat%20registry.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-3 px-4 rounded-xl transition-all shadow-xs active:scale-95"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#ef7445] hover:bg-[#ef5b21] text-white text-xs font-heading font-bold py-3 px-4 rounded-xl transition-all shadow-sm active:scale-95"
                 >
                   <Phone className="w-3.5 h-3.5" /> Consult via WhatsApp
                 </a>
@@ -151,21 +147,44 @@ export default function DirectorySearchContent() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 bg-white rounded-3xl border border-dashed border-slate-200">
-          <Stethoscope className="w-10 h-10 text-slate-300 mx-auto mb-3" />
-          <h3 className="text-base font-bold text-slate-900 mb-1">No practitioners found</h3>
-          <p className="text-xs text-slate-500 mb-4">Try adjusting your specialty filter or search keywords.</p>
+        <div className="text-center py-16 bg-[#fff9f0] rounded-2xl border border-dashed border-[#C99848]">
+          <Stethoscope className="w-10 h-10 text-[#C99848] mx-auto mb-3" />
+          <h3 className="text-lg font-display font-normal text-[#000000] mb-1">No specialists found</h3>
+          <p className="text-xs text-[#152251]/70 mb-4 font-heading font-medium">Try clearing your filters or changing search keywords.</p>
           <button
             onClick={() => {
               setQuery('');
               setActiveSpecialty('All');
             }}
-            className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 px-4 py-2 rounded-xl text-xs font-bold transition-colors"
+            className="inline-flex items-center gap-1.5 bg-[#C99848] hover:bg-[#ef7445] text-white px-4 py-2 rounded-xl text-xs font-heading font-bold transition-colors"
           >
-            <FilterX className="w-3.5 h-3.5" /> Reset All Filters
+            <FilterX className="w-3.5 h-3.5" /> Reset Registry Filters
           </button>
         </div>
       )}
+
+      {/* Pagination Ribbon */}
+      <div className="flex items-center justify-center gap-2 pt-6">
+        <button
+          type="button"
+          aria-label="Previous Page"
+          className="w-10 h-10 rounded-full border border-[#1c388c] flex items-center justify-center text-[#1c388c] hover:bg-[#C99848] hover:text-white hover:border-[#C99848] transition"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        <span className="px-4 py-2 rounded-full bg-[#F4E8D4] text-[#0f2442] border border-[#C99848] font-heading font-bold text-xs shadow-xs">
+          Page 1 of 1
+        </span>
+
+        <button
+          type="button"
+          aria-label="Next Page"
+          className="w-10 h-10 rounded-full border border-[#1c388c] flex items-center justify-center text-[#1c388c] hover:bg-[#C99848] hover:text-white hover:border-[#C99848] transition"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
     </div>
   );
 }
