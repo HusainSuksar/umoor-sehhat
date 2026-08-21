@@ -33,15 +33,7 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             
             {/* Arabic Crest Tag */}
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/90 border border-emerald-200/90 shadow-xs mb-8 backdrop-blur-md">
-              <span className="flex h-2.5 w-2.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
-              </span>
-              <span dir="rtl" lang="ar" className="font-kanz text-xl sm:text-2xl font-bold text-emerald-800 leading-none">
-                امور الصحة  
-              </span>
-            </div>
+            
 
             {/* Hero Main Heading */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-emerald-950 leading-[1.12] mb-6">
