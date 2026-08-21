@@ -17,3 +17,70 @@
 .font-kanz {
   font-family: var(--font-kanz);
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-arabic {
+  font-family: var(--font-arabic), 'Amiri', 'Traditional Arabic', serif;
+}
+
+/* Smooth Right-to-Left Arabic Reveal without breaking tashkeel/ligatures */
+@keyframes arabicRevealRTL {
+  0% {
+    clip-path: inset(0 100% 0 0); /* Hidden from left to right (RTL start) */
+  }
+  100% {
+    clip-path: inset(0 0 0 0); /* Fully visible */
+  }
+}
+
+@keyframes cursorFollowRTL {
+  0% {
+    right: 0%;
+    opacity: 1;
+  }
+  95% {
+    right: 100%;
+    opacity: 1;
+  }
+  100% {
+    right: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-arabic-reveal {
+  animation: arabicRevealRTL 3.2s steps(40, end) forwards;
+}
+
+.animate-arabic-cursor {
+  animation: cursorFollowRTL 3.2s steps(40, end) forwards;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-arabic {
+  font-family: var(--font-arabic), 'Amiri', 'Traditional Arabic', serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

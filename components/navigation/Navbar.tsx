@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { 
   Menu, 
   X, 
@@ -15,7 +15,8 @@ import {
   Home as HomeIcon,
   ChevronRight,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  FileUp
 } from 'lucide-react';
 import { MOCK_PRACTITIONERS, MOCK_ARTICLES } from '@/lib/mock-data';
 
@@ -23,6 +24,7 @@ const NAV_LINKS = [
   { href: '/', label: 'Home', icon: HomeIcon },
   { href: '/directory', label: 'Medical Directory', icon: Stethoscope },
   { href: '/content-hub', label: 'Health Hub', icon: BookOpen },
+  { href: '/report', label: 'Submit Report', icon: FileUp },
 ];
 
 export default function Navbar() {
@@ -30,9 +32,7 @@ export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const pathname = usePathname();
-  const router = useRouter();
 
-  // Keyboard shortcut listener (Cmd+K / Ctrl+K)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -49,7 +49,6 @@ export default function Navbar() {
 
   const closeMenu = () => setIsOpen(false);
 
-  // Search indexing across practitioners and medical articles
   const searchResults = searchQuery.trim() === '' ? [] : [
     ...MOCK_PRACTITIONERS.filter(p => 
       p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -80,7 +79,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-20 flex items-center justify-between gap-4">
             
-            {/* 1. Logo & Bilingual Brand Crest */}
+            {/* Logo & Bilingual Brand Crest */}
             <Link 
               href="/" 
               onClick={closeMenu}
@@ -100,12 +99,12 @@ export default function Navbar() {
               <div className="flex flex-col">
                 <div className="flex items-baseline gap-2 flex-wrap sm:flex-nowrap">
                   <span className="font-black text-lg sm:text-xl tracking-tight text-white">
-                    Umoor Sehhat <span className="text-emerald-400"></span>
+                    Umoor <span className="text-emerald-400">Sehhat</span>
                   </span>
                   <span 
                     dir="rtl" 
                     lang="ar"
-                    className="font-kanz text-xl sm:text-2xl font-bold text-emerald-300 leading-none select-none tracking-wide"
+                    className="font-arabic text-xl sm:text-2xl font-bold text-emerald-300 leading-none select-none tracking-wide"
                   >
                     امور الصحة
                   </span>
@@ -116,7 +115,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* 2. Embedded Header Search Trigger (Desktop) */}
+            {/* Header Search Trigger */}
             <div className="hidden md:flex flex-1 max-w-md mx-4">
               <button
                 type="button"
@@ -133,7 +132,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* 3. Desktop Navigation Links */}
+            {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-6 text-sm font-bold text-slate-200">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
@@ -153,7 +152,7 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* 4. Desktop Actions */}
+            {/* Desktop Actions */}
             <div className="hidden sm:flex items-center gap-3 shrink-0">
               <Link
                 href="/portal/login"
@@ -172,7 +171,7 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* 5. Mobile Controls (Search Button + Helpline Icon + Hamburger Menu) */}
+            {/* Mobile Controls */}
             <div className="flex items-center gap-1.5 md:hidden">
               <button
                 type="button"
@@ -261,8 +260,6 @@ export default function Navbar() {
       {isSearchOpen && (
         <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
           <div className="relative w-full max-w-2xl bg-[#081B15] border border-emerald-700/80 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
-            
-            {/* Search Input Box */}
             <div className="relative flex items-center px-6 py-4 border-b border-emerald-900/80 bg-emerald-950/40">
               <Search className="w-5 h-5 text-emerald-400 shrink-0 mr-3" />
               <input
@@ -282,7 +279,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Dynamic Results Display */}
             <div className="p-4 max-h-[60vh] overflow-y-auto space-y-2">
               {searchQuery.trim() === '' ? (
                 <div className="py-10 text-center text-slate-400">
@@ -322,7 +318,6 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-
           </div>
         </div>
       )}

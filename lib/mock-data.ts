@@ -1,13 +1,26 @@
 export interface Practitioner {
   id: string;
   name: string;
-  specialty: 'Cardiology' | 'Pediatrics' | 'General Medicine' | 'Orthopedics' | 'Dermatology';
+  specialty: string;
   qualification: string;
   experienceYears: number;
   location: string;
-  available: boolean;
   contactNumber: string;
+  available: boolean;
   photoUrl: string;
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  category: 'Wellness' | 'Cardiology' | 'Pediatrics' | 'Nutrition';
+  authorId: string;
+  date: string;
+  readTime: string;
+  coverImage: string;
+  status: 'published' | 'draft' | 'pending';
 }
 
 export interface InstagramPost {
@@ -15,160 +28,111 @@ export interface InstagramPost {
   caption: string;
   mediaUrl: string;
   permalink: string;
-  likes: number;
   timestamp: string;
-}
-
-export interface Article {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: 'Cardiology' | 'Preventative Care' | 'Nutrition' | 'Pediatrics';
-  authorId: string;
-  date: string;
-  readTime: string;
-  coverImage: string;
-  contentParagraphs: string[];
 }
 
 export const MOCK_PRACTITIONERS: Practitioner[] = [
   {
-    id: 'doc-1',
-    name: 'Dr. Murtaza Builder',
+    id: 'p1',
+    name: 'Dr. Fatima Al-Zahra',
     specialty: 'Cardiology',
-    qualification: 'MBBS, MD, FACC',
+    qualification: 'MD, FACC - Senior Consultant',
     experienceYears: 14,
     location: 'Central Medical Complex',
+    contactNumber: '919876543210',
     available: true,
-    contactNumber: '918378944352',
-    photoUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&q=80',
+    photoUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&auto=format&fit=crop&q=80',
   },
   {
-    id: 'doc-2',
-    name: 'Dr. Fatema Jamali',
+    id: 'p2',
+    name: 'Dr. Ibrahim Qasim',
     specialty: 'Pediatrics',
-    qualification: 'MBBS, DCH',
+    qualification: 'MBBS, DCH, MRCPCH',
     experienceYears: 9,
-    location: 'Al-Iman Children Clinic',
-    available: true,
+    location: 'Al-Noor Community Clinic',
     contactNumber: '919876543211',
-    photoUrl: 'https://images.unsplash.com/photo-1594824813586-1e66c0d8011d?w=400&h=400&fit=crop&q=80',
+    available: true,
+    photoUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80',
   },
   {
-    id: 'doc-3',
-    name: 'Dr. Husain Merchant',
-    specialty: 'Orthopedics',
-    qualification: 'MS (Ortho), DNB',
-    experienceYears: 12,
-    location: 'Burhani Care Complex',
-    available: false,
-    contactNumber: '919876543212',
-    photoUrl: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop&q=80',
-  },
-  {
-    id: 'doc-4',
-    name: 'Dr. Tasneem Hakim',
+    id: 'p3',
+    name: 'Dr. Zainab Hussain',
     specialty: 'General Medicine',
-    qualification: 'MBBS, MD (Internal Med)',
-    experienceYears: 16,
-    location: 'Community Health Wing',
-    available: true,
-    contactNumber: '919876543213',
-    photoUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&q=80',
-  },
-  {
-    id: 'doc-5',
-    name: 'Dr. Ali Asger Saifee',
-    specialty: 'Dermatology',
-    qualification: 'MBBS, DVD, MD',
-    experienceYears: 8,
-    location: 'Metro Derma Center',
-    available: true,
-    contactNumber: '919876543214',
-    photoUrl: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&q=80',
-  },
-];
-
-export const MOCK_INSTAGRAM_POSTS: InstagramPost[] = [
-  {
-    id: 'ig-1',
-    caption: 'Essential hydration and electrolyte balance tips for peak vitality.',
-    mediaUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&auto=format&fit=crop&q=60',
-    permalink: 'https://instagram.com',
-    likes: 142,
-    timestamp: '2 hours ago',
-  },
-  {
-    id: 'ig-2',
-    caption: 'Early cardiovascular screening metrics: what your lipid profile means.',
-    mediaUrl: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&auto=format&fit=crop&q=60',
-    permalink: 'https://instagram.com',
-    likes: 98,
-    timestamp: '5 hours ago',
-  },
-  {
-    id: 'ig-3',
-    caption: 'Proper sleep architecture and its role in metabolic health.',
-    mediaUrl: 'https://images.unsplash.com/photo-1511295742362-92c96b124e52?w=500&auto=format&fit=crop&q=60',
-    permalink: 'https://instagram.com',
-    likes: 215,
-    timestamp: '1 day ago',
-  },
-  {
-    id: 'ig-4',
-    caption: 'Community blood donation and free health checkup drive schedule.',
-    mediaUrl: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&auto=format&fit=crop&q=60',
-    permalink: 'https://instagram.com',
-    likes: 310,
-    timestamp: '2 days ago',
+    qualification: 'MBBS, MD (Internal Medicine)',
+    experienceYears: 12,
+    location: 'Sehhat Diagnostic Hub',
+    contactNumber: '919876543212',
+    available: false,
+    photoUrl: 'https://images.unsplash.com/photo-1594824813620-801a233b2a26?w=600&auto=format&fit=crop&q=80',
   },
 ];
 
 export const MOCK_ARTICLES: Article[] = [
   {
     id: 'art-1',
-    title: 'Understanding Preventative Cardiac Health in Your 30s and 40s',
-    excerpt: 'Key biomarkers, lifestyle adjustments, and regular screening protocols to avoid cardiovascular disease.',
+    title: 'Evidence-Based Preventative Cardiology in Community Practice',
+    excerpt: 'Key strategies for early detection of cardiovascular risk markers and diet modification protocols.',
+    content: 'Comprehensive preventative strategies developed by Umoor Sehhat medical teams focusing on hypertension screening, lipid management, and clinical dietary interventions.',
     category: 'Cardiology',
-    authorId: 'doc-1',
-    date: 'Aug 18, 2026',
+    authorId: 'p1',
+    date: '2026-08-10',
     readTime: '4 min read',
-    coverImage: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&h=600&fit=crop&q=80',
-    contentParagraphs: [
-      'Cardiovascular disease remains one of the primary health challenges worldwide, yet clinical evidence demonstrates that proactive, early intervention yields immense long-term protection. As adults transition into their 30s and 40s, metabolic adaptations occur that make this period a critical window to establish cardiovascular resilience.',
-      'A primary baseline protocol involves tracking specific biomarkers beyond basic cholesterol panels. Evaluating Apolipoprotein B (ApoB), high-sensitivity C-reactive protein (hs-CRP), and baseline blood pressure delivers accurate insights into endothelial inflammation and arterial stress.',
-      'Incorporating consistent aerobic activity—such as 150 minutes of Zone 2 training weekly—significantly enhances mitochondrial density and vascular compliance. Coupled with whole-food dietary patterns rich in fiber and unsaturated fatty acids, these habits serve as fundamental clinical pillars for lifelong health.',
-      'Lastly, prioritize consistent sleep quality. Unmanaged stress and chronic sleep fragmentation elevate baseline cortisol and sympathetic nervous system tone, which directly accelerates arterial strain. Establishing dedicated recovery windows ensures sustainable cardiovascular wellness.'
-    ]
+    coverImage: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop&q=80',
+    status: 'published',
   },
   {
     id: 'art-2',
-    title: 'Balanced Nutrition Strategies for Seasonal Transitions',
-    excerpt: 'How adjusting macro and micronutrient intake preserves immune integrity during rapid climate shifts.',
-    category: 'Nutrition',
-    authorId: 'doc-4',
-    date: 'Aug 12, 2026',
-    readTime: '5 min read',
-    coverImage: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1200&h=600&fit=crop&q=80',
-    contentParagraphs: [
-      'Seasonal shifts bring environmental changes in temperature, humidity, and allergen exposure that place subtle yet measurable strain on human metabolic and immune functions. Aligning dietary intake to support internal homeostasis during these periods is a powerful preventative strategy.',
-      'Prioritizing micronutrient density through seasonal vegetables, adequate zinc, and vitamin C supports epithelial tissue integrity—the body’s first line of physical defense. Hydration needs also change, requiring thoughtful attention to electrolyte balance rather than plain water consumption alone.',
-      'Maintaining gut microbiome diversity through fermented foods and prebiotic fibers fosters an optimal environment for immune cell signaling. Small, structured dietary adjustments ensure steady energy and defense throughout seasonal fluctuations.'
-    ]
+    title: 'Childhood Nutrition & Immune Support During Seasonal Shifts',
+    excerpt: 'Guidelines for parents on maintaining micronutrient density and hydration in pediatric care.',
+    content: 'Seasonal transition protocols for children including essential micronutrient supplementation guidelines, hydration requirements, and respiratory illness mitigation.',
+    category: 'Pediatrics',
+    authorId: 'p2',
+    date: '2026-08-04',
+    readTime: '6 min read',
+    coverImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80',
+    status: 'published',
   },
   {
     id: 'art-3',
-    title: 'Pediatric Immunization Schedules: A Comprehensive Reference',
-    excerpt: 'A complete parent guide to essential immunization milestones from infancy through early adolescence.',
-    category: 'Pediatrics',
-    authorId: 'doc-2',
-    date: 'Aug 05, 2026',
-    readTime: '6 min read',
-    coverImage: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=1200&h=600&fit=crop&q=80',
-    contentParagraphs: [
-      'Adhering to evidence-based immunization guidelines is one of the most effective measures in modern pediatric medicine to safeguard infants and children from vaccine-preventable illnesses.',
-      'During early developmental stages, immunizations train the naive immune system to recognize bacterial and viral antigens safely. Mild post-vaccination reactions—such as low-grade temperature elevations or slight localized tenderness—are standard physiological indicators of immune engagement.',
-      'Caregivers are encouraged to maintain structured physical and digital health passports for timely booster administration. If a milestone is missed, catch-up schedules safely restore immunity without restarting the entire protocol.'
-    ]
+    title: 'Hydration Science & Metabolic Balance',
+    excerpt: 'An evidence summary on daily electrolyte distribution and chronic fatigue prevention.',
+    content: 'Analysis of intracellular hydration dynamics, renal electrolyte retention, and practical recommendations for daily fluid intake.',
+    category: 'Nutrition',
+    authorId: 'p3',
+    date: '2026-07-28',
+    readTime: '5 min read',
+    coverImage: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&auto=format&fit=crop&q=80',
+    status: 'published',
+  },
+];
+
+export const MOCK_INSTAGRAM_POSTS: InstagramPost[] = [
+  {
+    id: 'ig-1',
+    caption: 'Official Health Advisory: Community vaccination and preventative screening camp dates.',
+    mediaUrl: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=600&auto=format&fit=crop&q=80',
+    permalink: 'https://instagram.com',
+    timestamp: '2 hours ago',
+  },
+  {
+    id: 'ig-2',
+    caption: 'Clinical wellness protocols: Maintaining optimal sleep architecture and circadian rhythm.',
+    mediaUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80',
+    permalink: 'https://instagram.com',
+    timestamp: '1 day ago',
+  },
+  {
+    id: 'ig-3',
+    caption: 'Umoor Sehhat Medical Registry: Over 120+ verified doctors added to the digital directory.',
+    mediaUrl: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&auto=format&fit=crop&q=80',
+    permalink: 'https://instagram.com',
+    timestamp: '3 days ago',
+  },
+  {
+    id: 'ig-4',
+    caption: 'Pediatric care guidelines: Recognizing early signs of seasonal allergy vs bacterial infection.',
+    mediaUrl: 'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=600&auto=format&fit=crop&q=80',
+    permalink: 'https://instagram.com',
+    timestamp: '5 days ago',
   },
 ];
