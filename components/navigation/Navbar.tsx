@@ -99,7 +99,7 @@ export default function Navbar() {
               <div className="flex flex-col">
                 <div className="flex items-baseline gap-2 flex-wrap sm:flex-nowrap">
                   <span className="font-black text-lg sm:text-xl tracking-tight text-white">
-                    Umoor <span className="text-emerald-400">Sehhat</span>
+                    Umoor Sehhat<span className="text-emerald-400"></span>
                   </span>
                   <span 
                     dir="rtl" 
