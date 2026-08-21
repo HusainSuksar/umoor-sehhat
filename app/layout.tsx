@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
                 <div>
                   <h3 className="font-extrabold text-white text-lg leading-tight">Umoor Sehhat</h3>
-                  <p dir="rtl" lang="ar" className="font-arabic text-xl font-bold text-emerald-400 leading-tight">امور الصحة</p>
+                  <p dir="rtl" lang="ar" className="font-kanz text-xl font-bold text-emerald-400 leading-tight">امور الصحة</p>
                 </div>
               </div>
               <p className="text-emerald-200/70 text-sm leading-relaxed max-w-sm">
