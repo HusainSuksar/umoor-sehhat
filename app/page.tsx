@@ -8,66 +8,65 @@ import { ArrowRight, ChevronLeft, ChevronRight, Stethoscope, FileUp } from 'luci
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#fdfbf7] text-[#152251]">
+    <div className="flex flex-col min-h-screen bg-[#FAFBF9] text-[#1F2817] overflow-x-hidden">
       
-      {/* 1. Classical Academic Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-24 bg-gradient-to-b from-[#fff9f0] via-[#fdfbf7] to-[#fdfbf7] border-b border-[#e4d6a0]/60">
+      {/* 1. Classical Hero Section */}
+      <section className="relative overflow-hidden pt-8 pb-14 sm:pt-16 sm:pb-24 bg-gradient-to-b from-[#F3F6EF] via-[#FAFBF9] to-[#FAFBF9] border-b border-[#E2EAD8]">
         
-        {/* Soft Muted Gold Ambient Backlight */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-[#C99848]/10 blur-[140px] rounded-full pointer-events-none -z-10" />
+        {/* Responsive Ambient Glow (Constrained so it doesn't push the viewport) */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-[300px] sm:h-[450px] bg-[#7A8B5C]/15 blur-[100px] rounded-full pointer-events-none -z-10" />
 
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
+          <div className="text-center max-w-3xl mx-auto flex flex-col items-center">
             
-            {/* Medallion Crest Badge with Muted Gold Border */}
-            <div className="relative mb-6 group">
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#C99848] to-[#e4d6a0] rounded-3xl blur-md opacity-30 group-hover:opacity-60 transition duration-500" />
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-white p-2.5 shadow-xl border border-[#C99848] flex items-center justify-center overflow-hidden">
+            {/* Medallion Crest Badge */}
+            <div className="relative mb-4 sm:mb-6 group">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl sm:rounded-3xl bg-white p-2 shadow-lg border border-[#91A373] flex items-center justify-center overflow-hidden">
                 <Image
                   src="/logo.png"
                   alt="Umoor Sehhat Official Crest"
                   fill
-                  sizes="112px"
+                  sizes="96px"
                   priority
-                  className="object-contain p-2"
+                  className="object-contain p-1.5"
                 />
               </div>
             </div>
 
-            {/* Arabic Quranic Ayat with Tashkeel & RTL Typing */}
-            <div className="w-full mb-3">
+            {/* Arabic Quranic Ayat */}
+            <div className="w-full mb-2 sm:mb-3">
               <AyatTypingEffect />
             </div>
 
             {/* Academic English Translation */}
-            <div className="max-w-xl mx-auto space-y-1 mb-8">
-              <p className="text-sm sm:text-base font-heading font-semibold text-[#0f2442] tracking-wide">
+            <div className="max-w-md sm:max-w-xl mx-auto space-y-1 mb-6 sm:mb-8 px-2">
+              <p className="text-xs sm:text-base font-heading font-semibold text-[#1F2817] tracking-wide">
                 &ldquo;And when I am ill, it is He who cures me.&rdquo;
               </p>
-              <p className="text-xs text-[#C99848] font-heading font-bold tracking-widest uppercase">
+              <p className="text-[10px] sm:text-xs text-[#5F6F44] font-heading font-bold tracking-widest uppercase">
                 Surah Ash-Shu&apos;ara (26:80)
               </p>
             </div>
 
             {/* Hero Subtitle */}
-            <p className="text-base sm:text-lg text-[#152251]/80 font-normal leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xs sm:text-base text-[#1F2817]/80 font-normal leading-relaxed max-w-xl mx-auto mb-6 sm:mb-10 px-3">
               A centralized medical governance and directory portal connecting our community with verified specialists, institutional research, and secure diagnostic triage.
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-md sm:max-w-none px-4">
               <Link
                 href="/directory"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#ef7445] hover:bg-[#ef5b21] px-8 py-4 text-base font-heading font-bold text-white shadow-xl shadow-[#ef7445]/20 hover:-translate-y-0.5 transition-all text-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-[#D4703B] hover:bg-[#BC5E2C] px-6 py-3.5 text-xs sm:text-sm font-heading font-bold text-white shadow-md transition-all active:scale-95 text-center"
               >
-                <Stethoscope className="w-5 h-5 shrink-0" /> Browse Physician Registry
+                <Stethoscope className="w-4 h-4 shrink-0" /> Browse Physician Registry
               </Link>
               
               <Link
                 href="/report"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#fff9f0] hover:bg-[#fff6e8] border border-[#C99848] px-8 py-4 text-base font-heading font-bold text-[#0f2442] shadow-sm hover:-translate-y-0.5 transition-all text-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl sm:rounded-2xl bg-white hover:bg-[#F3F6EF] border border-[#91A373] px-6 py-3.5 text-xs sm:text-sm font-heading font-bold text-[#1F2817] shadow-xs transition-all text-center"
               >
-                <FileUp className="w-5 h-5 text-[#C99848] shrink-0" /> Submit Diagnostic Record
+                <FileUp className="w-4 h-4 text-[#5F6F44] shrink-0" /> Submit Diagnostic Record
               </Link>
             </div>
 
@@ -75,51 +74,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Live Social Media Stream with Muted Gold Details */}
-      <section className="py-20 bg-white border-b border-[#e4d6a0]/60">
+      {/* 2. Live Social Media Stream */}
+      <section className="py-12 sm:py-20 bg-white border-b border-[#E2EAD8]">
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-3">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest text-[#C99848] mb-1.5">
-                <InstagramIcon className="w-4 h-4 text-[#ef7445]" />
-                <span>Live Institutional Feed</span>
+              <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-heading font-bold uppercase tracking-widest text-[#5F6F44] mb-1">
+                <InstagramIcon className="w-3.5 h-3.5 text-[#D4703B]" />
+                <span>Live Feed</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-display font-normal text-[#000000] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-display font-normal text-[#1F2817]">
                 Official Updates & Advisories
               </h2>
             </div>
-
-            {/* Circular Controls */}
-            <div className="flex items-center gap-3">
-              <button 
-                type="button" 
-                aria-label="Previous Post"
-                className="w-[50px] h-[50px] rounded-full border border-[#1c388c] flex items-center justify-center text-[#1c388c] hover:bg-[#C99848] hover:text-white hover:border-[#C99848] transition shadow-sm active:scale-95 cursor-pointer"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button 
-                type="button" 
-                aria-label="Next Post"
-                className="w-[50px] h-[50px] rounded-full border border-[#1c388c] flex items-center justify-center text-[#1c388c] hover:bg-[#C99848] hover:text-white hover:border-[#C99848] transition shadow-sm active:scale-95 cursor-pointer"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
           </div>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {MOCK_INSTAGRAM_POSTS.map((post, idx) => (
               <a 
                 key={post.id} 
                 href={post.permalink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-2xl overflow-hidden border border-[#C99848] bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer"
+                className="group rounded-2xl overflow-hidden border border-[#91A373]/60 bg-white shadow-xs hover:shadow-md transition-all flex flex-col"
               >
-                <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
+                <div className="relative aspect-square w-full bg-slate-100">
                   <Image
                     src={post.mediaUrl}
                     alt={post.caption}
@@ -127,29 +106,28 @@ export default function Home() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     priority={idx === 0}
                     loading={idx === 0 ? "eager" : "lazy"}
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    className="object-cover"
                     unoptimized 
                   />
-                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#fff9f0]/90 backdrop-blur-md shadow-md border border-[#C99848] flex items-center justify-center text-[#0f2442] group-hover:text-[#ef7445] transition-colors">
-                    <InstagramIcon className="w-4 h-4" />
+                  <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 shadow flex items-center justify-center text-[#1F2817]">
+                    <InstagramIcon className="w-3.5 h-3.5" />
                   </div>
                 </div>
 
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <p className="text-xs sm:text-sm text-[#152251] line-clamp-2 font-heading font-semibold leading-relaxed">
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <p className="text-xs text-[#1F2817] line-clamp-2 font-heading font-medium leading-relaxed">
                     {post.caption}
                   </p>
-                  <div className="mt-4 flex items-center justify-between text-[11px] font-heading font-bold text-[#C99848] uppercase tracking-wider">
+                  <div className="mt-3 flex items-center justify-between text-[10px] font-heading font-bold text-[#5F6F44]">
                     <span>{post.timestamp}</span>
-                    <span className="text-[#1c388c] group-hover:text-[#ef7445] transition-colors flex items-center gap-1">
-                      View <ArrowRight className="w-3.5 h-3.5" />
+                    <span className="text-[#D4703B] flex items-center gap-1">
+                      View <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
                 </div>
               </a>
             ))}
           </div>
-
         </div>
       </section>
 
