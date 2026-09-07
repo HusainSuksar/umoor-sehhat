@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import AyatTypingEffect from '@/components/home/AyatTypingEffect';
 import InstagramIcon from '@/components/icons/InstagramIcon';
-import { ExternalLink, Expand, FileText, BookOpen, ArrowRight } from 'lucide-react';
+import { ExternalLink, Expand, HeartPulse, BookOpen, ArrowRight } from 'lucide-react';
 
 const NAVIGATION_TABS = [
   {
@@ -11,10 +11,10 @@ const NAVIGATION_TABS = [
     icon: Expand,
   },
   {
-    title: 'Diagnostic Report Desk',
-    subtitle: 'Confidential clinical document intake and patient triage uploads',
+    title: 'Multispecialty Health Camp',
+    subtitle: 'Umoor Sehhat in collaboration with Saifee Hospital Mumbai',
     href: 'https://forms.umoorsehhat.org/reports',
-    icon: FileText,
+    icon: HeartPulse,
   },
   {
     title: 'Health Advisories & Hub',
