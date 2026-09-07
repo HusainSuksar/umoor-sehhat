@@ -5,9 +5,9 @@ import { ExternalLink, Stethoscope, FileText, BookOpen, ArrowRight } from 'lucid
 
 const NAVIGATION_TABS = [
   {
-    title: 'Physician Registry',
-    subtitle: 'Consult verified medical practitioners and regional clinical specialists',
-    href: 'https://directory.umoorsehhat.org',
+    title: 'Waqfa Sehhiya',
+    subtitle: 'A 12 day health journey with UMOOR SEHHAT',
+    href: 'https://umoorsehhatwaqafasahhiya.netlify.app/',
     icon: Stethoscope,
   },
   {
