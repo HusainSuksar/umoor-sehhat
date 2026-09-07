@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import AyatTypingEffect from '@/components/home/AyatTypingEffect';
 import InstagramIcon from '@/components/icons/InstagramIcon';
-import { ExternalLink, Stethoscope, FileText, BookOpen, ArrowRight } from 'lucide-react';
+import { ExternalLink, Expand, FileText, BookOpen, ArrowRight } from 'lucide-react';
 
 const NAVIGATION_TABS = [
   {
     title: 'Waqfa Sehhiya',
     subtitle: 'A 12 day health journey with UMOOR SEHHAT',
     href: 'https://umoorsehhatwaqafasahhiya.netlify.app/',
-    icon: Stethoscope,
+    icon: Expand,
   },
   {
     title: 'Diagnostic Report Desk',
